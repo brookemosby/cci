@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-type NavKey = "home" | "cci-way" | "solutions" | "partners" | "resources" | "contact";
+type NavKey = "home" | "cci-way" | "solutions" | "partners" | "events" | "contact";
 
 export function SiteHeader({
   active,
@@ -98,11 +98,11 @@ export function SiteHeader({
           Our Partners
         </Link>
         <Link
-          href="/resources"
-          className={active === "resources" ? "active-link" : ""}
+          href="/events"
+          className={active === "events" ? "active-link" : ""}
           onClick={() => setOpen(false)}
         >
-          Resources
+          Events
         </Link>
         <Link
           href="/contact"
