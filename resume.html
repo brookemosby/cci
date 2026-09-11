@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Brooke Mosby - Resume</title>
+  <style>
+    @page { margin: 0.28in 0.45in; size: letter; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 10.5pt;
+      line-height: 1.06;
+      color: #000;
+      margin: 0;
+      padding: 0.28in 0.45in;
+    }
+    h1 {
+      font-size: 10.5pt;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    .header-line { margin: 0; }
+    .header-spacer { margin-bottom: 5px; }
+    h2 {
+      font-size: 10.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 5px 0 2px;
+    }
+    p { margin: 0 0 2px; }
+    .summary p { margin: 0; }
+    .tech-block p { margin: 0 0 1px; }
+    .job { margin-bottom: 2px; }
+    .job-row {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+    .dates {
+      display: table-cell;
+      width: 0.9in;
+      vertical-align: top;
+      padding-right: 8px;
+    }
+    .job-content { display: table-cell; vertical-align: top; }
+    .job-title, .company { font-weight: normal; margin: 0; }
+    .job-content p { margin: 0 0 1px; }
+  </style>
+</head>
+<body>
+  <h1>Brooke Mosby</h1>
+  <p class="header-line">Salt Lake City, Utah 84010</p>
+  <p class="header-line header-spacer">(385) 488-6584 - brookemosby.tech@gmail.com</p>
+
+  <h2>Professional Summary</h2>
+  <div class="summary">
+    <p>Top performing full-stack senior software engineer with 10+ years of experience developing frontend, backend, dev-ops, payment systems, web 3.0 technologies and ML/AI R&amp;D, for bullet-proof and agile applications. Excellent interpersonal skills, and able to clearly communicate, commit to, and exceed expectations. Skilled in designing and implementing robust architecture for many high profile features using a wide range of programming languages and tools, including AI agent tooling (Vercel MCP, Agent Runs). Always eager to dive into new challenges and to gain a new skillset.</p>
+  </div>
+
+  <h2>Technologies Used</h2>
+  <div class="tech-block">
+    <p>Languages: Golang, Javascript (NodeJS, NextJs, &amp; React), Typescript, Python, Ruby on Rails, C++, Dart, Git, Bash, Lua, HTML, CSS, Mustache, Handlebars, MATLAB, R</p>
+    <p>Web Hosting, Deployment, CI/CD pipelines: AWS, Azure, GCP, Vercel, Docker, Kubernetes, Terraform, Jenkins, Travis, Github Actions, MCP, AI agents</p>
+    <p>Databases: SQL, DBT, Snowflake, Postgres, MongoDB, DynamoDB, MySQL, Redis, GraphQL</p>
+    <p>Monitoring: DataDog, Splunk, Pagerduty</p>
+  </div>
+
+  <h2>Work History</h2>
+
+  <div class="job">
+    <div class="job-row">
+      <div class="dates">07/2022 to<br>Current</div>
+      <div class="job-content">
+        <p class="job-title">Tech Lead &amp; Senior Infrastructure Engineer</p>
+        <p class="company">Vercel</p>
+        <p>Launched Vercel MCP (public beta) and Agent Runs in MCP/CLI for AI agents (Cursor, ChatGPT, Claude, Devin, Windsurf).</p>
+        <p>Managed team by planning, delegating work, &amp; mentoring employees.</p>
+        <p>Designed &amp; implemented multiple microservices to replace outdated monolith codebase.</p>
+        <p>Implemented service to reduce P99 of TTFB for data fetches by over 50%.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="job-row">
+      <div class="dates">08/2021 to<br>03/2022</div>
+      <div class="job-content">
+        <p class="job-title">Senior Software Engineer</p>
+        <p class="company">GoPuff</p>
+        <p>Developed new driver payment microservice in Golang &amp; frontend in JavaScript React to replace outdated SQL/DBT based payment system</p>
+        <p>Corrected calculations &amp; analyzed over 40,000 daily orders to ensure payment history was accurately maintained</p>
+        <p>Set up dashboard &amp; alerts in Datadog to monitor production environment</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="job-row">
+      <div class="dates">05/2018 to<br>08/2021</div>
+      <div class="job-content">
+        <p class="job-title">Senior Software Engineer</p>
+        <p class="company">Apple</p>
+        <p>Decreased feature release time with code generators to automate tedious development in various languages</p>
+        <p>Implemented end to end features requiring integration into complex monolith legacy codebase</p>
+        <p>Deployed EC2 solutions, updated DynamoDB, and integrated with Angular JS frontend</p>
+        <p>Created dashboards on Splunk to monitor operational health metrics and notify on-call DevOps of any issues</p>
+        <p>Collaborated with team to design and implement architecture for multitenant microservice</p>
+        <p>Recipient of Excellence Award</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="job-row">
+      <div class="dates">02/2017 to<br>08/2017</div>
+      <div class="job-content">
+        <p class="job-title">Data Engineer Intern</p>
+        <p class="company">Medic.Life</p>
+        <p>Developed ML algorithms to determine frequency, HNR, glottal pulses and jitter of signal, with accuracy up to 99%</p>
+        <p>Authored python package index to deploy and integrate with code painlessly</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="job">
+    <div class="job-row">
+      <div class="dates">10/2016 to<br>03/2017</div>
+      <div class="job-content">
+        <p class="job-title">Research Assistant</p>
+        <p class="company">Brigham Young University</p>
+        <p>Researched and implemented simulations under two professors for celestial body research &amp; robotics research</p>
+        <p>Modeled motion of celestial bodies within two body system, by applying Newton's and Kepler's laws and Fourier transforms</p>
+        <p>Used Matlab to model different robotics movements and track algorithm speed</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+  <p>12/2017 Bachelor of Science: Applied &amp; Computational Mathematics</p>
+  <p>Brigham Young University - Provo, UT</p>
+  <p>Received full ride academic scholarship to attend. Invited to and participated in Phi Eta Sigma, BYU Honor Society, Graduated with a GPA of 3.7. Earned an emphasis in Mathematical Theory &amp; Statistics.</p>
+</body>
+</html>
