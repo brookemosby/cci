@@ -5,7 +5,7 @@ export const runtime = "nodejs";
 const EVENTS_RECIPIENT = "beau@cciint.com";
 
 function buildRedirectUrl(req: Request, redirectTo: string, success: boolean): URL {
-  const fallback = "/resources";
+  const fallback = "/events";
   const safeTarget = redirectTo.startsWith("/") ? redirectTo : fallback;
   const target = new URL(safeTarget, req.url);
   target.searchParams.delete("sent");

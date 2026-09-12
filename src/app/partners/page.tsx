@@ -6,14 +6,13 @@ import { SiteHeader } from "@/components/site-header";
 
 type CategoryKey =
   | "cloud"
-  | "cx-ux"
+  | "cx-uc"
   | "connectivity"
   | "cybersecurity"
-  | "ai-llm-secure-gateway"
   | "pots-replacement"
-  | "network"
-  | "caller-id"
-  | "colo";
+  | "network-iot"
+  | "branded-caller-id"
+  | "data-center";
 
 type PartnerCategory = {
   key: CategoryKey;
@@ -34,18 +33,21 @@ const partnerDomains: Record<string, string> = {
   "Sky Data Vault": "skydatavault.com",
   "11:11": "1111systems.com",
   "8x8": "8x8.com",
-  NICE: "nice.com",
+  "Nice Cognigy": "cognigy.com",
   GENESIS: "genesys.com",
   DIALPAD: "dialpad.com",
   FIVE9: "five9.com",
   Vonage: "vonage.com",
   "Ring Centra": "ringcentral.com",
   GOTO: "goto.com",
-  "MICROSOFT TEAMS": "microsoft.com",
-  WEBEX: "webex.com",
+  "Microsoft Teams": "teams.microsoft.com",
   ZOOM: "zoom.us",
+  Sangoma: "sangoma.com",
+  Sinch: "sinch.com",
+  eGain: "egain.com",
+  "Kore.AI": "kore.ai",
   "AT&T": "att.com",
-  COMCAST: "comcast.com",
+  "Comcast Business": "business.comcast.com",
   COX: "cox.com",
   FIRSTDIGITAL: "firstdigital.com",
   LUMEN: "lumen.com",
@@ -57,6 +59,10 @@ const partnerDomains: Record<string, string> = {
   GTT: "gtt.net",
   Mosaic: "mosaicnetworks.com",
   CommandLink: "commandlink.com",
+  Nitel: "nitel.com",
+  Uniti: "uniti.com",
+  ITS: "itsasap.com",
+  SilverSky: "silversky.com",
   "Abnormal Security": "abnormal.ai",
   Armis: "armis.com",
   Avanan: "avanan.com",
@@ -79,16 +85,18 @@ const partnerDomains: Record<string, string> = {
   VARONIS: "varonis.com",
   Verkada: "verkada.com",
   Netcyberops: "netcyberops.com",
-  "Kore.AI": "kore.ai",
   "Liminal AI": "liminal.ai",
   OOMA: "ooma.com",
   IoT: "iot.com",
   EpiciO: "epicio.com",
   Meter: "meter.com",
+  TPx: "tpx.com",
+  "Epic iO": "epicio.com",
   Hiya: "hiya.com",
   "Rack space": "rackspace.com",
   Equinix: "equinix.com",
   Switch: "switch.com",
+  Databank: "databank.com",
 };
 
 const partnerCategories: PartnerCategory[] = [
@@ -110,21 +118,24 @@ const partnerCategories: PartnerCategory[] = [
     ],
   },
   {
-    key: "cx-ux",
-    label: "CX/UX",
+    key: "cx-uc",
+    label: "CX & UC",
     icon: "X",
     partners: [
       "ZOOM",
       "DIALPAD",
-      "NICE",
+      "Nice Cognigy",
       "GENESIS",
       "Vonage",
       "Ring Centra",
       "GOTO",
       "8x8",
       "FIVE9",
-      "MICROSOFT TEAMS",
-      "WEBEX",
+      "Microsoft Teams",
+      "Sangoma",
+      "Sinch",
+      "eGain",
+      "Kore.AI",
     ],
   },
   {
@@ -133,7 +144,7 @@ const partnerCategories: PartnerCategory[] = [
     icon: "N",
     partners: [
       "AT&T",
-      "COMCAST",
+      "Comcast Business",
       "COX",
       "FIRSTDIGITAL",
       "LUMEN",
@@ -145,6 +156,8 @@ const partnerCategories: PartnerCategory[] = [
       "GTT",
       "Mosaic",
       "CommandLink",
+      "Nitel",
+      "Uniti",
     ],
   },
   {
@@ -152,6 +165,8 @@ const partnerCategories: PartnerCategory[] = [
     label: "Cybersecurity",
     icon: "S",
     partners: [
+      "ITS",
+      "SilverSky",
       "Abnormal Security",
       "Armis",
       "Avanan",
@@ -163,6 +178,7 @@ const partnerCategories: PartnerCategory[] = [
       "Infoblox",
       "Keeper",
       "KnowBe4",
+      "Liminal AI",
       "Netskope",
       "Palo Alto Networks",
       "Security Scorecard",
@@ -174,15 +190,6 @@ const partnerCategories: PartnerCategory[] = [
       "VARONIS",
       "Verkada",
       "Netcyberops",
-      "Kore.AI",
-    ],
-  },
-  {
-    key: "ai-llm-secure-gateway",
-    label: "AI LLM Secure Gateway",
-    icon: "A",
-    partners: [
-      "Liminal AI",
     ],
   },
   {
@@ -192,22 +199,22 @@ const partnerCategories: PartnerCategory[] = [
     partners: ["OOMA", "IoT", "EpiciO"],
   },
   {
-    key: "network",
-    label: "Network",
+    key: "network-iot",
+    label: "Network & IoT",
     icon: "N",
-    partners: ["Meter"],
+    partners: ["Meter", "TPx", "Epic iO"],
   },
   {
-    key: "caller-id",
-    label: "Caller ID",
+    key: "branded-caller-id",
+    label: "Branded Caller ID",
     icon: "I",
     partners: ["Hiya"],
   },
   {
-    key: "colo",
-    label: "Colo",
+    key: "data-center",
+    label: "Data Center",
     icon: "C",
-    partners: ["Rack space", "Equinix", "Switch", "And more"],
+    partners: ["Rack space", "Equinix", "Switch", "Databank", "And more"],
   },
 ];
 
@@ -215,22 +222,32 @@ function PartnerLogoCard({ partner }: { partner: string }) {
   const [imageFailed, setImageFailed] = useState(false);
   const domain = partnerDomains[partner];
   const logoUrl = domain ? `https://www.google.com/s2/favicons?domain=${domain}&sz=128` : null;
+  const websiteUrl = domain ? `https://${domain}` : null;
+
+  const content =
+    logoUrl && !imageFailed ? (
+      <>
+        <img
+          src={logoUrl}
+          alt={`${partner} logo mark`}
+          className="partner-logo-img"
+          loading="lazy"
+          onError={() => setImageFailed(true)}
+        />
+        <span className="partner-logo-caption">{partner}</span>
+      </>
+    ) : (
+      <span className="partner-logo-fallback">{partner}</span>
+    );
 
   return (
     <article className="partner-logo-card">
-      {logoUrl && !imageFailed ? (
-        <>
-          <img
-            src={logoUrl}
-            alt={`${partner} logo mark`}
-            className="partner-logo-img"
-            loading="lazy"
-            onError={() => setImageFailed(true)}
-          />
-          <span className="partner-logo-caption">{partner}</span>
-        </>
+      {websiteUrl ? (
+        <a href={websiteUrl} target="_blank" rel="noopener noreferrer" className="partner-logo-link">
+          {content}
+        </a>
       ) : (
-        <span className="partner-logo-fallback">{partner}</span>
+        content
       )}
     </article>
   );
