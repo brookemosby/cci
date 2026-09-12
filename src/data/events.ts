@@ -17,12 +17,13 @@ export type EventItem = {
  */
 export const currentEvents: EventItem[] = [
   {
-    id: "cciint-rsvpify",
-    title: "CCI Event",
-    date: "See registration page for schedule",
-    dateSort: "2099-12-31",
+    id: "fireside-cx-leaders-oct-2026",
+    title: "Fireside Conversation with CX Leaders",
+    date: "October 7, 2026 · 11:00am – 1:30pm",
+    dateSort: "2026-10-07",
+    location: "Hearth & Hill Sugarhouse",
     description:
-      "Join Carrier Consulting International for our upcoming event. Reserve your spot through RSVPify.",
+      "Fireside conversation with CX leaders from across Utah. Reserve your spot through RSVPify.",
     rsvpUrl: "https://cciint.rsvpify.com/",
   },
 ];
