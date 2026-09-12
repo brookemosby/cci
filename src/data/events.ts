@@ -17,42 +17,14 @@ export type EventItem = {
  */
 export const currentEvents: EventItem[] = [
   {
-    id: "event-1",
-    title: "Upcoming Event 1",
-    date: "TBD",
+    id: "cciint-rsvpify",
+    title: "CCI Event",
+    date: "See registration page for schedule",
     dateSort: "2099-12-31",
-    location: "TBD",
-    description: "Replace with event details and paste the RSVPify URL below.",
-    rsvpUrl: "https://rsvpify.com/",
-  },
-  {
-    id: "event-2",
-    title: "Upcoming Event 2",
-    date: "TBD",
-    dateSort: "2099-12-30",
-    location: "TBD",
-    description: "Replace with event details and paste the RSVPify URL below.",
-    rsvpUrl: "https://rsvpify.com/",
-  },
-  {
-    id: "event-3",
-    title: "Upcoming Event 3",
-    date: "TBD",
-    dateSort: "2099-12-29",
-    location: "TBD",
-    description: "Replace with event details and paste the RSVPify URL below.",
-    rsvpUrl: "https://rsvpify.com/",
+    description:
+      "Join Carrier Consulting International for our upcoming event. Reserve your spot through RSVPify.",
+    rsvpUrl: "https://cciint.rsvpify.com/",
   },
 ];
 
-export const previousEvents: EventItem[] = [
-  {
-    id: "past-event-1",
-    title: "Previous Event Example",
-    date: "June 2026",
-    dateSort: "2026-06-01",
-    location: "Virtual",
-    description: "Move completed events here so visitors can see past programming.",
-    rsvpUrl: "",
-  },
-];
+export const previousEvents: EventItem[] = [];
