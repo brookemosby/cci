@@ -26,6 +26,16 @@ export const currentEvents: EventItem[] = [
       "Fireside conversation with CX leaders from across Utah. Reserve your spot through RSVPify.",
     rsvpUrl: "https://cciint.rsvpify.com/",
   },
+  {
+    id: "ai-cx-fireside-sd-oct-2026",
+    title: "AI and CX Fireside Chat",
+    date: "October 26, 2026 · 10:30am – 1:00pm",
+    dateSort: "2026-10-26",
+    location: "Hilton San Diego Bayfront",
+    description:
+      "Join CCI in San Diego for a fireside chat on AI and customer experience. Reserve your spot through RSVPify.",
+    rsvpUrl: "https://ccisandiego.rsvpify.com/",
+  },
 ];
 
 export const previousEvents: EventItem[] = [];
