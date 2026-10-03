@@ -474,6 +474,7 @@ main {
   text-align: center;
   font: inherit;
   line-height: 1.2;
+  border: 0;
 }
 
 .calendar-promo-backdrop {
@@ -539,6 +540,66 @@ main {
   color: #0b5f7a;
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+.calendar-promo-preview-badge {
+  display: inline-block;
+  margin-bottom: 0.55rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: #dce8f2;
+  color: #0b4a62;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.follow-calendar-preview-wrap {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.follow-calendar-preview-menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  z-index: 2;
+  min-width: 13.5rem;
+  margin: 0;
+  padding: 0.35rem 0;
+  list-style: none;
+  border-radius: 0.45rem;
+  background: #fff;
+  border: 1px solid #d5dee8;
+  box-shadow: 0 10px 28px rgb(15 39 74 / 0.16);
+}
+
+.follow-calendar-preview-option {
+  display: block;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  border: 0;
+  background: transparent;
+  color: #0f274a;
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.follow-calendar-preview-option:disabled {
+  opacity: 0.92;
+}
+
+.follow-calendar-preview-note {
+  margin: 0;
+  max-width: 28ch;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #4a6278;
 }
 
 .resources-lead {
