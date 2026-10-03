@@ -5,8 +5,8 @@ import { useEffect, useId, useRef, useState } from "react";
 
 const ADDEVENT_SCRIPT = "https://cdn.addevent.com/libs/stc/1.0.2/stc.min.js";
 
-export const FOLLOW_CALENDAR_BUTTON_CLASS = "addeventstc follow-calendar-addevent";
-export const FOLLOW_CALENDAR_PILL_CLASS = "addeventstc pill-btn follow-calendar-addevent";
+/** Wrapper modifier — styles the AddEvent trigger as a CCI pill button */
+export const FOLLOW_CALENDAR_PILL_CLASS = "follow-calendar-host--pill";
 
 type AddEventWindow = Window & {
   addeventstc?: { refresh?: () => void };
@@ -20,13 +20,13 @@ type FollowCalendarButtonProps = {
   /** AddEvent subscription calendar ID (from dashboard → calendar → Follow Calendar embed) */
   calendarId: string;
   label?: string;
-  className?: string;
+  hostClassName?: string;
 };
 
 export function FollowCalendarButton({
   calendarId,
   label = "Follow our calendar",
-  className = FOLLOW_CALENDAR_BUTTON_CLASS,
+  hostClassName = "",
 }: FollowCalendarButtonProps) {
   const [scriptReady, setScriptReady] = useState(false);
   const mountId = useId().replaceAll(":", "");
@@ -40,6 +40,8 @@ export function FollowCalendarButton({
     return null;
   }
 
+  const hostClass = ["follow-calendar-host", hostClassName].filter(Boolean).join(" ");
+
   return (
     <>
       <Script
@@ -47,14 +49,18 @@ export function FollowCalendarButton({
         strategy="lazyOnload"
         onLoad={() => setScriptReady(true)}
       />
-      <div
-        key={mountId}
-        title="Add to Calendar"
-        className={className}
-        data-id={calendarId}
-        data-styling="none"
-      >
-        {label}
+      <div className={hostClass}>
+        <div
+          key={mountId}
+          title="Add to Calendar"
+          className="addeventstc"
+          data-id={calendarId}
+          data-styling="none"
+          data-dropdown-y="down"
+          data-dropdown-x="left"
+        >
+          {label}
+        </div>
       </div>
     </>
   );
@@ -74,25 +80,34 @@ const PREVIEW_CALENDAR_OPTIONS = [
 
 type FollowCalendarCtaProps = {
   label?: string;
-  className?: string;
+  hostClassName?: string;
 };
 
 export function FollowCalendarCta({
   label = "Follow our calendar",
-  className = FOLLOW_CALENDAR_BUTTON_CLASS,
+  hostClassName = "",
 }: FollowCalendarCtaProps) {
   const calendarId = getAddEventCalendarId();
 
   if (calendarId) {
-    return <FollowCalendarButton calendarId={calendarId} label={label} className={className} />;
+    return (
+      <FollowCalendarButton calendarId={calendarId} label={label} hostClassName={hostClassName} />
+    );
   }
 
-  return <FollowCalendarPreview label={label} className={className} />;
+  return <FollowCalendarPreview label={label} hostClassName={hostClassName} />;
 }
 
-function FollowCalendarPreview({ label, className }: { label: string; className: string }) {
+function FollowCalendarPreview({
+  label,
+  hostClassName,
+}: {
+  label: string;
+  hostClassName: string;
+}) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const hostClass = ["follow-calendar-host", hostClassName].filter(Boolean).join(" ");
 
   useEffect(() => {
     if (!open) return;
@@ -107,11 +122,15 @@ function FollowCalendarPreview({ label, className }: { label: string; className:
     return () => document.removeEventListener("pointerdown", onPointerDown);
   }, [open]);
 
+  const triggerClass = hostClassName.includes(FOLLOW_CALENDAR_PILL_CLASS)
+    ? "follow-calendar-preview-trigger follow-calendar-preview-trigger--pill"
+    : "follow-calendar-preview-trigger";
+
   return (
-    <div ref={rootRef} className="follow-calendar-preview-wrap">
+    <div ref={rootRef} className={hostClass}>
       <button
         type="button"
-        className={className}
+        className={triggerClass}
         aria-expanded={open}
         aria-haspopup="listbox"
         onClick={() => setOpen((prev) => !prev)}

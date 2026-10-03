@@ -466,15 +466,79 @@ main {
   opacity: 0.92;
 }
 
-.follow-calendar-addevent {
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font: inherit;
-  line-height: 1.2;
+.follow-calendar-host {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+}
+
+.follow-calendar-host--pill .addeventstc {
+  display: inline-block;
+  margin: 0;
+  padding: 0.7rem 1.8rem;
   border: 0;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #0f274a;
+  font: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.follow-calendar-host--pill .addeventstc:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(245, 166, 35, 0.38);
+}
+
+.follow-calendar-host .addeventstc_dropdown {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  z-index: 500;
+  min-width: 14.5rem;
+  padding: 0.35rem 0;
+  border: 1px solid #d5dee8;
+  border-radius: 0.45rem;
+  background: #fff;
+  box-shadow: 0 10px 28px rgb(15 39 74 / 0.16);
+}
+
+.follow-calendar-host .addeventstc_dropdown span {
+  display: block !important;
+  padding: 0.55rem 0.85rem;
+  color: #0f274a;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.follow-calendar-host .addeventstc_dropdown span:hover {
+  background: #f0f4f8;
+}
+
+.follow-calendar-host .addeventstc_dropdown .copyx {
+  display: none !important;
+}
+
+.follow-calendar-preview-trigger {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.follow-calendar-preview-trigger--pill {
+  display: inline-block;
+  margin: 0;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  background: var(--gold);
+  color: #0f274a;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
 .calendar-promo-backdrop {
@@ -496,6 +560,7 @@ main {
   background: #f7f9fb;
   color: #0b1a28;
   box-shadow: 0 24px 60px rgb(0 0 0 / 0.28);
+  overflow: visible;
 }
 
 .calendar-promo-dialog h2 {
@@ -530,8 +595,9 @@ main {
   margin-top: 1.35rem;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.75rem 1rem;
+  overflow: visible;
 }
 
 .calendar-promo-secondary {
@@ -555,19 +621,11 @@ main {
   text-transform: uppercase;
 }
 
-.follow-calendar-preview-wrap {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.45rem;
-}
-
 .follow-calendar-preview-menu {
   position: absolute;
   top: calc(100% + 0.35rem);
   left: 0;
-  z-index: 2;
+  z-index: 500;
   min-width: 13.5rem;
   margin: 0;
   padding: 0.35rem 0;
