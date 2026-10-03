@@ -136,7 +136,7 @@ const partnerCategories: PartnerCategory[] = [
     key: "cpaas",
     label: "CPaaS",
     icon: "P",
-    partners: ["InfoBip"],
+    partners: ["InfoBip", "Sinch"],
   },
   {
     key: "cx-uc",
