@@ -2,18 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  FollowCalendarCta,
-  FOLLOW_CALENDAR_PILL_CLASS,
-  getAddEventCalendarId,
-} from "@/components/follow-calendar-button";
+import { FollowCalendarCta, FOLLOW_CALENDAR_PILL_CLASS } from "@/components/follow-calendar-button";
 
 const DISMISS_KEY = "cci-calendar-promo-dismissed";
 const PROMO_SHOW_DELAY_MS = 1200;
 
 export function CalendarFollowPromo() {
-  const calendarId = getAddEventCalendarId();
-  const isPreview = !calendarId;
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -44,7 +38,6 @@ export function CalendarFollowPromo() {
         <button type="button" className="calendar-promo-close" aria-label="Dismiss" onClick={dismiss}>
           ×
         </button>
-        {isPreview ? <span className="calendar-promo-preview-badge">Preview</span> : null}
         <p className="eyebrow eyebrow-dark">Stay in the loop</p>
         <h2 id="calendar-promo-title">Never miss a CCI event</h2>
         <p>
