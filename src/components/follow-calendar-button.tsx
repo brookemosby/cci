@@ -75,17 +75,11 @@ const PREVIEW_CALENDAR_OPTIONS = [
 type FollowCalendarCtaProps = {
   label?: string;
   className?: string;
-  /** When true, show a small note that AddEvent is not connected yet */
-  showPreviewNote?: boolean;
-  /** Opens the mock calendar picker (preview mode only) */
-  initialMenuOpen?: boolean;
 };
 
 export function FollowCalendarCta({
   label = "Follow our calendar",
   className = FOLLOW_CALENDAR_BUTTON_CLASS,
-  showPreviewNote = false,
-  initialMenuOpen = false,
 }: FollowCalendarCtaProps) {
   const calendarId = getAddEventCalendarId();
 
@@ -93,28 +87,11 @@ export function FollowCalendarCta({
     return <FollowCalendarButton calendarId={calendarId} label={label} className={className} />;
   }
 
-  return (
-    <FollowCalendarPreview
-      label={label}
-      className={className}
-      showPreviewNote={showPreviewNote}
-      initialMenuOpen={initialMenuOpen}
-    />
-  );
+  return <FollowCalendarPreview label={label} className={className} />;
 }
 
-function FollowCalendarPreview({
-  label,
-  className,
-  showPreviewNote,
-  initialMenuOpen,
-}: {
-  label: string;
-  className: string;
-  showPreviewNote: boolean;
-  initialMenuOpen: boolean;
-}) {
-  const [open, setOpen] = useState(initialMenuOpen);
+function FollowCalendarPreview({ label, className }: { label: string; className: string }) {
+  const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -151,11 +128,6 @@ function FollowCalendarPreview({
             </li>
           ))}
         </ul>
-      ) : null}
-      {showPreviewNote ? (
-        <p className="follow-calendar-preview-note">
-          Preview only — connect AddEvent in Vercel to enable live subscriptions.
-        </p>
       ) : null}
     </div>
   );

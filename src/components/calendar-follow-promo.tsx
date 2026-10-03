@@ -52,11 +52,7 @@ export function CalendarFollowPromo() {
           on your personal calendar automatically.
         </p>
         <div className="calendar-promo-actions">
-          <FollowCalendarCta
-            className={FOLLOW_CALENDAR_PILL_CLASS}
-            showPreviewNote={isPreview}
-            initialMenuOpen={isPreview}
-          />
+          <FollowCalendarCta className={FOLLOW_CALENDAR_PILL_CLASS} />
           <Link href="/events" className="calendar-promo-secondary" onClick={dismiss}>
             View all events
           </Link>
