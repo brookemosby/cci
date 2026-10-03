@@ -6,6 +6,8 @@ import { SiteHeader } from "@/components/site-header";
 
 type CategoryKey =
   | "cloud"
+  | "managed-services"
+  | "cpaas"
   | "cx-uc"
   | "connectivity"
   | "cybersecurity"
@@ -94,6 +96,13 @@ const partnerDomains: Record<string, string> = {
   "Epic iO": "epicio.com",
   Hiya: "hiya.com",
   "Rack space": "rackspace.com",
+  Rackspace: "rackspace.com",
+  Dyopath: "dyopath.com",
+  Xtium: "xtium.com",
+  InfoBip: "infobip.com",
+  Front: "front.com",
+  SoundHound: "soundhound.com",
+  Liminal: "liminal.ai",
   Equinix: "equinix.com",
   Switch: "switch.com",
   Databank: "databank.com",
@@ -118,6 +127,18 @@ const partnerCategories: PartnerCategory[] = [
     ],
   },
   {
+    key: "managed-services",
+    label: "Managed Services",
+    icon: "M",
+    partners: ["11:11", "Rackspace", "Dyopath", "Xtium"],
+  },
+  {
+    key: "cpaas",
+    label: "CPaaS",
+    icon: "P",
+    partners: ["InfoBip", "Sinch"],
+  },
+  {
     key: "cx-uc",
     label: "CX & UC",
     icon: "X",
@@ -136,6 +157,8 @@ const partnerCategories: PartnerCategory[] = [
       "Sinch",
       "eGain",
       "Kore.AI",
+      "Front",
+      "SoundHound",
     ],
   },
   {
@@ -164,33 +187,7 @@ const partnerCategories: PartnerCategory[] = [
     key: "cybersecurity",
     label: "Cybersecurity",
     icon: "S",
-    partners: [
-      "ITS",
-      "SilverSky",
-      "Abnormal Security",
-      "Armis",
-      "Avanan",
-      "CrowdStrike",
-      "Delinea",
-      "Drata",
-      "eSentire",
-      "Fortinet",
-      "Infoblox",
-      "Keeper",
-      "KnowBe4",
-      "Liminal AI",
-      "Netskope",
-      "Palo Alto Networks",
-      "Security Scorecard",
-      "TANIUM",
-      "Tenable",
-      "ThreatDown",
-      "Tufin",
-      "Vanta",
-      "VARONIS",
-      "Verkada",
-      "Netcyberops",
-    ],
+    partners: ["ITS", "SilverSky", "Liminal", "11:11", "Dyopath", "Xtium"],
   },
   {
     key: "pots-replacement",

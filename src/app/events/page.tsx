@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { EventsCalendarCta } from "@/components/events-calendar-cta";
 import { SiteHeader } from "@/components/site-header";
 import { FormSubmitButton } from "@/components/form-submit-button";
 import { currentEvents, previousEvents, type EventItem } from "@/data/events";
@@ -39,9 +40,9 @@ export default async function EventsPage({
 }: {
   searchParams: Promise<{ sent?: string; error?: string }>;
 }) {
-  const resolved = await searchParams;
-  const sent = resolved.sent === "1";
-  const error = resolved.error === "1";
+  const { sent: sentFlag, error: errorFlag } = await searchParams;
+  const sent = sentFlag === "1";
+  const error = errorFlag === "1";
 
   const sortedCurrent = [...currentEvents].sort(
     (a, b) => a.dateSort.localeCompare(b.dateSort),
@@ -63,6 +64,7 @@ export default async function EventsPage({
               Join CCI for curated sessions aligned to your business goals and technology
               priorities. Reserve your spot through our RSVPify event pages.
             </p>
+            <EventsCalendarCta />
           </div>
         </section>
 
